@@ -1,0 +1,28 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+$unstyledAColor: #FFF;
+$unstyledAColorHover: #000;
+$unstyledAColorInverse: #969696;
+$unstyledAColorInverseHover: #000;
+
+.form-control-visitor {
+	margin: 15px;
+}
+
+.a-unstyled {
+    color: $unstyledAColor;
+    &:link { color: $unstyledAColor; }
+    &:visited { color: $unstyledAColor; }
+    &:hover { color: $unstyledAColorHover; }
+    &:active { color: $unstyledAColor; }
+}
+
+.navbar-inverse .a-unstyled {
+    color: $unstyledAColorInverse;
+
+    &:link { color: $unstyledAColorInverse; }
+    &:visited { color: $unstyledAColorInverse; }
+    &:hover { color: $unstyledAColorInverseHover; }
+    &:active { color: $unstyledAColorInverse; }
+}

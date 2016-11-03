@@ -1,0 +1,17 @@
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>No Prédio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @inBuilding.each do |i| %>
+      <%= form_tag '/choose', method: 'get' do %>
+        <%= hidden_field_tag 'id', i['id'] %>
+        <tr>
+          <td> <%= submit_tag i['nome'], class: 'btn-link' %> </td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,43 @@
+<% if @currentvisitor && @currentvisitor.persisted? %>
+
+  <div class="page-header text-center">
+    <h4>Movimentação</h4>
+  </div>
+
+  <%= form_for @history, class: 'entryForm' do |f| %>
+    <%= f.label 'motivo' %>
+    <%= f.text_field 'motivo', class: 'form-control', placeholder: 'Motivo' %>
+
+    
+    <%= f.label 'gabinete' %>
+
+    <%= fields_for @history.gabinete do |g| %>
+        <%= g.select options_from_collection_for_select(@gabinetes, 'id', 'procurador'), class: 'form-control' %>
+    <% end %>
+
+    <%= f.submit "Cadastrar #{@currentvisitor.in_building ? 'Entrada' : 'Saída'}", 
+                  id: 'Cadastrar', class: 'btn btn-default center-block form-control' %>
+  <% end %>
+<% end %>
+<div class="page-header text-center">
+  <h4>Últimas movimentações</h4>
+</div>
+<div class="table-mov">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Hora</th>
+        <th>Nome</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {{#each history}}
+        <tr>
+          <td>{{ data.toLocaleTimeString 'pt-BR' }} ({{tipo}})</td>
+          <td>{{ nome }}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

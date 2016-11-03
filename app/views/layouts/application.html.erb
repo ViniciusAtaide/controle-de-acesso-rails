@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EntradaSaida</title>
+  <link type="image/x-icon" rel="shortcut icon" href="<%= asset_path 'favicon-96x96.png' %>">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= render "layouts/nav" %>
+
+<div class="container main-row fade in out">
+	<% if flash[:error] %>
+	<div class="alert alert-danger">
+	  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<%= flash[:error] %>
+	</div>
+	<% end %>
+  <%= yield %>
+</div>
+
+</body>
+</html>
