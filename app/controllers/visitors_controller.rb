@@ -10,6 +10,7 @@ class VisitorsController < ApplicationController
 
   def choose    
     session[:currentvisitor] = params[:id]
+    
     redirect_to root_url
   end
 
@@ -24,11 +25,14 @@ class VisitorsController < ApplicationController
     redirect_to(root_url)
   end
 
-  def create
-    if !Visitor.create visitor_params
-      flash[:error] = "Usuário não pôde ser salvo"
-    end
-
+  def create  
+    v = Visitor.new visitor_params
+    v.in_building = false  
+    if !v.save
+      flash[:error] = "Usuário não pôde ser salvo, alguns parâmetros estão faltando"
+    else
+      session[:currentvisitor] = v.id
+    end  
     redirect_to root_url
   end
 

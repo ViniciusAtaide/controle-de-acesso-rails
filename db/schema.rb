@@ -19,21 +19,8 @@ ActiveRecord::Schema.define(version: 20161101053012) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "headshot_photos", force: :cascade do |t|
-    t.string   "description"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.integer  "capturable_id"
-    t.string   "capturable_type"
-    t.datetime "image_updated_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "histories", force: :cascade do |t|
-    t.string   "nome"
-    t.date     "data"
+    t.integer  "visitor_id",  null: false
     t.string   "motivo"
     t.integer  "gabinete_id"
     t.string   "tipo"

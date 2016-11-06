@@ -4,6 +4,7 @@ class PagesController < ApplicationController
     # session[:visitors] = nil
 
     @history = History.new
+    @histories = History.where created_at: (Time.now.beginning_of_day..Time.now.end_of_day) 
 
     @gabinetes = Gabinete.all
 
@@ -17,7 +18,8 @@ class PagesController < ApplicationController
     else
       @visitors = Visitor.all
     end
-    @inBuilding = Visitor.like in_building: true
+    
+    @inBuilding = Visitor.where in_building: true
 
     render 'entryhandling'
   end

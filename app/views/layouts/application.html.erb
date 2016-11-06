@@ -12,10 +12,13 @@
 <%= render "layouts/nav" %>
 
 <div class="container main-row fade in out">
-	<% if flash[:error] %>
-	<div class="alert alert-danger">
+	<% if flash[:error] || flash[:message] %>
+	<div class="alert <%= flash[:error] ? 'alert-danger' : 'alert-notice' %>">
 	  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-		<%= flash[:error] %>
+		<%= flash[:error] || flash[:message] %>
+		<script>
+			window.setTimeout($("#alert").destroy(),2000);
+		</script>
 	</div>
 	<% end %>
   <%= yield %>

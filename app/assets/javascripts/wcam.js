@@ -1,8 +1,8 @@
 var flag = false;
 
-
 function take_photo() {
   Webcam.snap(function(data_uri) {
+
     // hidrata a div com a imagem
     document.querySelector('#result').innerHTML = '<img src="' + data_uri + '" />';
     // seta o input para a imagem
@@ -28,4 +28,5 @@ window.setTimeout(function tout() {
 
   Webcam.attach('#camera');
   alterar.style.display = 'none';
+  
 }, 1000);
