@@ -17,9 +17,9 @@
 
       <%= f.text_field :motivo, class: 'form-control', placeholder: 'Motivo' %>
 
-      <%= f.label :gabinete %>
+      <%= f.label :gabinete_id %>
 
-      <%= f.select :gabinete, options_from_collection_for_select(@gabinetes, 'id', 'procurador'), {}, class: 'form-control' %>
+      <%= f.select :gabinete_id, options_from_collection_for_select(@gabinetes, 'id', 'procurador'), {}, class: 'form-control' %>
     <% end %>
     <%= f.submit "Cadastrar #{@currentvisitor.in_building ? 'Saída' : 'Entrada'}", class: 'btn btn-default center-block form-control' %>
 

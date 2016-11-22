@@ -15,4 +15,6 @@
 //= require tether
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require moment
+//= require bootstrap-datetimepicker
 //= require webcam.min

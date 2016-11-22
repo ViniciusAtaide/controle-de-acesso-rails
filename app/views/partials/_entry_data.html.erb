@@ -27,7 +27,7 @@
       <% unless @currentvisitor.persisted? %>
         <button class="btn btn-danger"><a href="/new" class="a-unstyled">Cancelar</a></button>
       <% end %>
-      <%= submit_tag @currentvisitor.persisted? ? 'Editar' : 'Adicionar', class: "btn btn-primary #{@currentvisitor.persisted? ? 'col-xs-offset-4 col-xs-4' : ' pull-right'}"    %>
+      <%= submit_tag @currentvisitor.persisted? ? 'Editar' : 'Adicionar', class: "btn btn-primary #{@currentvisitor.persisted? ? 'col-xs-offset-4 col-xs-4' : ' pull-right'}" %>
     </div>
   </table>
 <% end %>

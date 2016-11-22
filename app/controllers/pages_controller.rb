@@ -16,15 +16,19 @@ class PagesController < ApplicationController
     if session[:visitors]
       @visitors = Visitor.find(session[:visitors])
     else
-      @visitors = Visitor.all
+      @visitors = []
     end
-    
+
     @inBuilding = Visitor.where in_building: true
 
     render 'entryhandling'
   end
 
   def entryreport
+    @day = Time.now || Time.parse(session[:day])
+
+    @histories ||= History.where created_at: (@day.beginning_of_day..@day.end_of_day)
+
     render 'entryreport'
   end
 end

@@ -13,6 +13,9 @@ Rails.application.routes.draw do
 
   get 'new' => 'visitors#new'
 
+  get 'changedate' => 'histories#changedate'
+
+
   resources :visitors
   resources :histories
 
